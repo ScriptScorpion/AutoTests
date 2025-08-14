@@ -47,10 +47,10 @@ int main(int argc, char *argv[]) {
         file.seekg(0);
         file.read(header, sizeof(header));
         file.close();
-        if (header[0] == 0x7F || header[1] == 'E' || header[2] == 'L' || header[3] == 'F') {
+        if (header[0] == 0x7F || header[1] == 'E' && header[2] == 'L' && header[3] == 'F') {
             strcat(combiner, "/");
         }
-        else if (header[0] == 'M' || header[1] == 'Z') {
+        else if (header[0] == 'M' && header[1] == 'Z') {
             strcat(combiner, "\\");
         }
         else {

@@ -31,7 +31,6 @@ std::string execute(const char *cmd) {
     return result;
 }
 int main(int argc, char *argv[]) {
-    fflush(stdout);
     if (argc == 1) {
         std::cout << "Usage: " << argv[0] << " [executable] \n";
         return -1;

@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
             return -1;
         }
         std::ifstream file(argv[1], std::ios::binary);
-        char combiner[sizeof(argv[1])/sizeof(char)] = ".";
+        char combiner[strlen(argv[1])] = ".";
         char header[4];
         std::string expected_output {}; 
         file.seekg(0);

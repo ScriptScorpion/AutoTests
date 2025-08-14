@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
             return -1;
         }
         std::ifstream file(argv[1], std::ios::binary);
-        char combiner[30] = ".";
+        char combiner[sizeof(argv[1])/sizeof(char)] = ".";
         char header[4];
         std::string expected_output {}; 
         file.seekg(0);
@@ -69,7 +69,9 @@ int main(int argc, char *argv[]) {
         else {
             std::cout << "\033[0;31m" << "Test failed! \n" << "\033[0m";
         }
-        
+        std::cout << "\nInfo: \n";
+        std::cout << "    Output from file: " << output << std::endl;
+        std::cout << "    Expectation: " << expected_output << std::endl;
     }
     return 0;
 }

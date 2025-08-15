@@ -6,6 +6,16 @@
 #include <cctype> // for iscntrl
 #include <filesystem> // for exists
 
+std::string remove_symbols(std::string str) {
+    std::string result {};
+    for (char c : str) {
+        if (isalnum(c)) {
+            result += c;
+        }
+    }
+    return result;
+}
+
 std::string remove_space(std::string str) {
     std::string result {};
     for (unsigned char c : str) {
@@ -30,8 +40,9 @@ std::string execute(const char *cmd) {
     pclose(pipe); 
     return result;
 }
+
 int main(int argc, char *argv[]) {
-    if (argc == 1 || argv[0] == argv[1]) {
+    if (argc == 1 || argc > 2 || remove_symbols(std::string(argv[0])) == remove_symbols(std::string(argv[1]))) {
         std::cout << "Usage: " << argv[0] << " [executable] \n";
         return -1;
     }

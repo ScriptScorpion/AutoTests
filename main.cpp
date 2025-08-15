@@ -75,10 +75,10 @@ int main(int argc, char *argv[]) {
         output = remove_space(output);
         expected_output = remove_space(expected_output);
         if (output == expected_output) {
-            std::cout << "\033[0;32m" << "Test passed! \n" << "\033[0m";
+            std::cout << "\033[0;32m" << " \nTest passed! \n" << "\033[0m";
         }
         else {
-            std::cout << "\033[0;31m" << "Test failed! \n" << "\033[0m";
+            std::cout << "\033[0;31m" << "\nTest failed! \n" << "\033[0m";
         }
         std::cout << "\nInfo: \n";
         std::cout << "    Output from file: " << output << std::endl;

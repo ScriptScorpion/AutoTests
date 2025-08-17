@@ -74,15 +74,18 @@ int main(int argc, char *argv[]) {
         std::string output = execute(combiner);
         output = remove_space(output);
         expected_output = remove_space(expected_output);
-        if (output == expected_output) {
-            std::cout << "\033[0;32m" << " \nTest passed! \n" << "\033[0m";
-        }
-        else {
-            std::cout << "\033[0;31m" << "\nTest failed! \n" << "\033[0m";
-        }
-        std::cout << "\nInfo: \n";
+        
+        std::cout << "\nInfo: \n\n";
         std::cout << "    Output from file: " << output << std::endl;
         std::cout << "    Expectation: " << expected_output << std::endl;
+        
+        if (output == expected_output) {
+            std::cout << "\033[0;32m" << "\n    Test passed! \n\n" << "\033[0m";
+        }
+        else {
+            std::cout << "\033[0;31m" << "\n    Test failed! \n\n" << "\033[0m";
+        }
+        
     }
     return 0;
 }
